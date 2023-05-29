@@ -1,23 +1,52 @@
-import logo from './logo.svg';
+import React, { useEffect, useState} from 'react';
 import './App.css';
+import Header from './Components/Header/header';
+import Footer from './Components/Footer/footer';
+import Note from './Components/Note/note.jsx';
+import Create from './Components/Create/create';
 
 function App() {
+  const [notes, setNotes] = useState([]);
+
+useEffect(()=>{
+  const storeNotes = localStorage.getItem('notes');
+  if (storeNotes) {
+    setNotes(JSON.parse(storeNotes));
+  }
+},[])
+
+useEffect(()=>{
+  localStorage.setItem('notes', JSON.stringify(notes));
+})
+
+  function addNote(newNote) {
+    setNotes(prevNotes => {
+      return [...prevNotes, newNote];
+    });
+  }
+
+  function deleteNote(id) {
+    setNotes(prevNotes => {
+      return prevNotes.filter((note,index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id='main'>
+      <Header />
+      <Create onAdd={addNote} />
+      {notes.map((noteItem, index) => (
+        <Note
+          key={index}
+          id={index}
+          title={noteItem.title}
+          content={noteItem.content}
+          onDelete={deleteNote}
+        />
+      ))}
+      <Footer />
     </div>
   );
 }
