@@ -8,3 +8,29 @@
 #main{
   font-family: 'McLaren', cursive;
 }
+
+.clear_button {
+  position: relative;
+  float: right;
+  margin-right: 10px;
+background-color: #f5ba13;
+color: #ffff;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  display: flex ;
+  gap: 10px;
+  width: 100px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+#note-container{
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+}

@@ -7,7 +7,7 @@ function header() {
     <div className='header'>
       <h1>
       <HighlightIcon />
-      Keeper</h1>
+      Notes</h1>
     </div>
   )
 }

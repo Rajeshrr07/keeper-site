@@ -6,10 +6,12 @@
   width: 240px;
   margin: 16px;
   float: left;
+  line-break: anywhere;
 }
 .note h1 {
   font-size: 1.1em;
   margin-bottom: 6px;
+  line-clamp:inherit;
 }
 .note p {
   font-size: 1.1em;
@@ -19,13 +21,17 @@
 }
 
 .note .button {
-  position: relative;
-  float: right;
-  margin-right: 10px;
-  color: #f5ba13;
-  border: none;
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-  outline: none;
+    /* position: relative; */
+    /* float: right; */
+    margin-right: 10px;
+    color: #f5ba13;
+    border: none;
+    /* width: 36px; */
+    /* height: 36px; */
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
 }
